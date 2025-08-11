@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Deneb Social",
   "description": "Add some social elements to Deneb",
   "version": "1.5.1",
@@ -9,8 +9,7 @@
     }
   },
   "background": {
-    "scripts": ["backend.js"],
-    "persistent": false
+    "service_worker": "backend.js"
   },
   "content_scripts": [
     {
@@ -24,10 +23,12 @@
   },
   "permissions": [
     "cookies",
-    "https://bgm.tv/*",
-    "https://api.bgm.tv/*",
-    "http://localhost/*",
     "storage",
     "tabs"
+  ],
+  "host_permissions": [
+    "https://bgm.tv/*",
+    "https://api.bgm.tv/*",
+    "http://localhost/*"
   ]
 }
